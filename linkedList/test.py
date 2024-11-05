@@ -1,5 +1,4 @@
 from linkedList import LinkedList
 
 lista = LinkedList()
-
-lista.imprimir()
+lista.ler("linkedList/arq.txt")         
