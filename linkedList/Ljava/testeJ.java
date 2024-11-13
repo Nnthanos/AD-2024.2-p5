@@ -1,4 +1,4 @@
-package java;
+package Ljava;
 import java.io.File;
 public class testeJ {
     public static void main(String[] args) {

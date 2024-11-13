@@ -1,4 +1,4 @@
-package java;
+package Ljava;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -28,7 +28,7 @@ public class linkedListJ {
             
             // Segunda linha
             String secondLine = scanner.nextLine();
-            int qtdAcoes = Integer.parseInt(secondLine);
+            int qtdAcoes = Integer.parseInt(secondLine.trim());
 
             for (int i = 0; i < qtdAcoes; i++){
                 String acao = scanner.nextLine();

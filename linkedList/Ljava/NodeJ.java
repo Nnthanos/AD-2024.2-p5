@@ -1,4 +1,4 @@
-package java;
+package Ljava;
 public class NodeJ {
     private int data;
     private NodeJ next;
