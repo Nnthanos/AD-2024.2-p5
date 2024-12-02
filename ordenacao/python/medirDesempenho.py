@@ -1,5 +1,4 @@
 import time
-import tracemalloc
 import os
 from memory_profiler import memory_usage
 from bubbleSort import *;
@@ -75,7 +74,7 @@ def medirDesempenho(arquivo):
     print(f"Consumo de memória: {memoria} KB")
     
 
-    # salvar_lista_em_arquivo(lista, "arq_saida.txt")
+    salvar_lista_em_arquivo(lista, "arq_saida.txt")
     salvar_dados_em_planilha(tempoms, memoria, metodo, "resultados.xlsx")
 
 

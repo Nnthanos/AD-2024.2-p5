@@ -90,7 +90,7 @@ public class medeDesempenho {
         System.out.println("Consumo de memória: " + memoriaKb + " KB");
 
         salvarListaEmArquivo(lista, "arq_saida.txt");
-        // salvarDadosEmPlanilha(tempoMs, memoriaKb,metodo, "resultadosJava.csv");
+        salvarDadosEmPlanilha(tempoMs, memoriaKb,metodo, "resultadosJava.csv");
     }
 
     public static void main(String[] args) {
