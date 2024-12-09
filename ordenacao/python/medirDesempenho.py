@@ -74,11 +74,11 @@ def medirDesempenho(arquivo):
     print(f"Consumo de memória: {memoria} KB")
     
 
-    salvar_lista_em_arquivo(lista, "arq_saida.txt")
+    # salvar_lista_em_arquivo(lista, "arq_saida.txt")
     salvar_dados_em_planilha(tempoms, memoria, metodo, "resultados.xlsx")
 
 
 if __name__ == '__main__':
     for i in range(10):
-        medirDesempenho("D:/Nathan SSD/Estudos/AD-2024.2-p5/ordenacao/arq.txt")
+        medirDesempenho("/workspaces/AD-2024.2-p5/ordenacao/arq-desafio.txt")
         print(f"Execução {i+1} concluída!")

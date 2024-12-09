@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 def criar_graficos():
     # Ler o arquivo Excel
+    array = []
     try:
         dados_xlsx = pd.read_excel("resultados.xlsx")
     except Exception as e:
@@ -40,6 +41,7 @@ def criar_graficos():
         plt.legend()
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig("media_tempo.png")
         plt.show()
 
     except KeyError as e:
@@ -62,6 +64,7 @@ def criar_graficos():
         plt.legend()
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig("mediana_tempo.png")
         plt.show()
 
     except KeyError as e:
@@ -84,6 +87,7 @@ def criar_graficos():
         plt.legend()
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig("media_memoria.png")
         plt.show()
 
     except KeyError as e:
@@ -106,6 +110,7 @@ def criar_graficos():
         plt.legend()
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig("mediana_memoria.png")
         plt.show()
 
     except KeyError as e:

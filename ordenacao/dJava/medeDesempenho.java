@@ -76,10 +76,10 @@ public class medeDesempenho {
         long memoriaAntes = runtime.totalMemory() - runtime.freeMemory();
 
         long inicioTempo = System.nanoTime();
-        // String metodo = "bubbleSort";
-        // bubbleSort.ordenar(lista);
-        String metodo = "mergeSort";
-        mergeSort.ordenar(lista);
+        String metodo = "bubbleSort";
+        bubbleSort.ordenar(lista);
+        // String metodo = "mergeSort";
+        // mergeSort.ordenar(lista);
         long fimTempo = System.nanoTime();
 
         long memoriaDepois = runtime.totalMemory() - runtime.freeMemory();
@@ -89,12 +89,12 @@ public class medeDesempenho {
         System.out.println("Tempo de execução: " + tempoMs + " ms");
         System.out.println("Consumo de memória: " + memoriaKb + " KB");
 
-        salvarListaEmArquivo(lista, "arq_saida.txt");
+        // salvarListaEmArquivo(lista, "arq_saida.txt");
         salvarDadosEmPlanilha(tempoMs, memoriaKb,metodo, "resultadosJava.csv");
     }
 
     public static void main(String[] args) {
-        String arquivo = "D:/Nathan SSD/Estudos/AD-2024.2-p5/ordenacao/arq.txt";
+        String arquivo = "/workspaces/AD-2024.2-p5/ordenacao/arq-desafio.txt";
 
         for (int i = 0; i < 10; i++) {
             medirDesempenho(arquivo);
