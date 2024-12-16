@@ -33,7 +33,7 @@ def salvar_lista_em_arquivo(lista, nome_arquivo):
 def salvar_dados_em_planilha(tempo, memoria, metodo, arquivo_saida):
     # Dados a serem salvos
     versao_python = "3.11.1"
-    
+
     # Cria o DataFrame com os dados
     novo_dado = {
         "Metodo": [metodo],
@@ -46,14 +46,14 @@ def salvar_dados_em_planilha(tempo, memoria, metodo, arquivo_saida):
 
     # Se o arquivo já existir, lê os dados e adiciona a nova linha
     if os.path.exists(arquivo_saida):
-        df_existente = pd.read_excel(arquivo_saida)
+        df_existente = pd.read_csv(arquivo_saida)
         df_final = pd.concat([df_existente, df_novo], ignore_index=True)
     else:
         df_final = df_novo
 
-    # Salva os dados no arquivo Excel
-    df_final.to_excel(arquivo_saida, index=False)
-    print(f"Dados salvos na planilha '{arquivo_saida}'")
+    # Salva os dados no arquivo CSV
+    df_final.to_csv(arquivo_saida, index=False)
+    print(f"Dados salvos no arquivo CSV '{arquivo_saida}'")
 
 
 def medirDesempenho(arquivo):
@@ -62,10 +62,10 @@ def medirDesempenho(arquivo):
 
     inicio = time.time()
     print("Ordenando lista...")
-    metodo = "bubbleSortPy"
-    memory = memory_usage((bubbleSort, (lista,)))
-    # metodo = "mergeSortPy"
-    # memory = memory_usage((mergeSort, (lista,)))
+    # metodo = "bubbleSortPy"
+    # memory = memory_usage((bubbleSort, (lista,)))
+    metodo = "mergeSortPy"
+    memory = memory_usage((mergeSort, (lista,)))
     memoria = max(memory) * 1024
     fim = time.time()
     
@@ -75,10 +75,10 @@ def medirDesempenho(arquivo):
     
 
     # salvar_lista_em_arquivo(lista, "arq_saida.txt")
-    salvar_dados_em_planilha(tempoms, memoria, metodo, "resultados.xlsx")
+    salvar_dados_em_planilha(tempoms, memoria, metodo, "resultadosPythonVM.csv")
 
 
 if __name__ == '__main__':
     for i in range(10):
-        medirDesempenho("/workspaces/AD-2024.2-p5/ordenacao/arq-desafio.txt")
+        medirDesempenho("ordenacao/python/arq_saida.txt")
         print(f"Execução {i+1} concluída!")
