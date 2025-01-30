@@ -3,18 +3,21 @@ import matplotlib.pyplot as plt
 
 def criar_graficos():
     # Ler o arquivo Excel
+    array = []
     try:
-        dados_xlsx = pd.read_excel("resultados.xlsx")
+        dados_xlsx = pd.read_csv("resultadosPythonVM.csv")
     except Exception as e:
         print(f"Erro ao ler o arquivo Excel: {e}")
         return
 
     # Ler o arquivo CSV
     try:
-        dados_csv = pd.read_csv("resultadosJava.csv")
+        dados_csv = pd.read_csv("resultadosJavaVM.csv")
     except Exception as e:
         print(f"Erro ao ler o arquivo CSV: {e}")
         return
+
+    print(dados_xlsx.columns)
 
     dados_xlsx_mergeSortPy = dados_xlsx[dados_xlsx["Metodo"] == "mergeSortPy"]
     dados_xlsx_bubbleSortPy = dados_xlsx[dados_xlsx["Metodo"] == "bubbleSortPy"]
@@ -31,8 +34,8 @@ def criar_graficos():
         plt.figure(figsize=(10, 6))
         bar_width = 0.2
         x = range(2)
-        plt.bar(x, [media_tempo_xlsx_mergeSortPy, media_tempo_xlsx_bubbleSortPy], width=bar_width, label="Python (Excel)", alpha=0.6, color='blue')
-        plt.bar([i + bar_width for i in x], [media_tempo_csv_mergeSort, media_tempo_csv_bubbleSort], width=bar_width, label="Java (CSV)", alpha=0.6, color='green')
+        plt.bar(x, [media_tempo_xlsx_mergeSortPy, media_tempo_xlsx_bubbleSortPy], width=bar_width, label="Python", alpha=0.6, color='blue')
+        plt.bar([i + bar_width for i in x], [media_tempo_csv_mergeSort, media_tempo_csv_bubbleSort], width=bar_width, label="Java", alpha=0.6, color='green')
         plt.xticks([i + bar_width/2 for i in x], ['mergeSort', 'bubbleSort'])
         plt.xlabel("Método")
         plt.ylabel("Média do Tempo de Execução (ms)")
@@ -40,6 +43,7 @@ def criar_graficos():
         plt.legend()
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig("media_tempo_VM.png")
         plt.show()
 
     except KeyError as e:
@@ -53,8 +57,8 @@ def criar_graficos():
         mediana_tempo_csv_bubbleSort = dados_csv_bubbleSort["Tempo de Execucao (ms)"].median()
 
         plt.figure(figsize=(10, 6))
-        plt.bar(x, [mediana_tempo_xlsx_mergeSortPy, mediana_tempo_xlsx_bubbleSortPy], width=bar_width, label="Python (Excel)", alpha=0.6, color='blue')
-        plt.bar([i + bar_width for i in x], [mediana_tempo_csv_mergeSort, mediana_tempo_csv_bubbleSort], width=bar_width, label="Java (CSV)", alpha=0.6, color='green')
+        plt.bar(x, [mediana_tempo_xlsx_mergeSortPy, mediana_tempo_xlsx_bubbleSortPy], width=bar_width, label="Python", alpha=0.6, color='blue')
+        plt.bar([i + bar_width for i in x], [mediana_tempo_csv_mergeSort, mediana_tempo_csv_bubbleSort], width=bar_width, label="Java", alpha=0.6, color='green')
         plt.xticks([i + bar_width/2 for i in x], ['mergeSort', 'bubbleSort'])
         plt.xlabel("Método")
         plt.ylabel("Mediana do Tempo de Execução (ms)")
@@ -62,6 +66,7 @@ def criar_graficos():
         plt.legend()
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig("mediana_tempo_VM.png")
         plt.show()
 
     except KeyError as e:
@@ -75,8 +80,8 @@ def criar_graficos():
         media_memoria_csv_bubbleSort = dados_csv_bubbleSort["Consumo de Memoria (KB)"].mean()
 
         plt.figure(figsize=(10, 6))
-        plt.bar(x, [media_memoria_xlsx_mergeSortPy, media_memoria_xlsx_bubbleSortPy], width=bar_width, label="Python (Excel)", alpha=0.6, color='blue')
-        plt.bar([i + bar_width for i in x], [media_memoria_csv_mergeSort, media_memoria_csv_bubbleSort], width=bar_width, label="Java (CSV)", alpha=0.6, color='green')
+        plt.bar(x, [media_memoria_xlsx_mergeSortPy, media_memoria_xlsx_bubbleSortPy], width=bar_width, label="Python", alpha=0.6, color='blue')
+        plt.bar([i + bar_width for i in x], [media_memoria_csv_mergeSort, media_memoria_csv_bubbleSort], width=bar_width, label="Java", alpha=0.6, color='green')
         plt.xticks([i + bar_width/2 for i in x], ['mergeSort', 'bubbleSort'])
         plt.xlabel("Método")
         plt.ylabel("Média do Consumo de Memória (KB)")
@@ -84,6 +89,7 @@ def criar_graficos():
         plt.legend()
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig("media_memoria_VM.png")
         plt.show()
 
     except KeyError as e:
@@ -97,8 +103,8 @@ def criar_graficos():
         mediana_memoria_csv_bubbleSort = dados_csv_bubbleSort["Consumo de Memoria (KB)"].median()
 
         plt.figure(figsize=(10, 6))
-        plt.bar(x, [mediana_memoria_xlsx_mergeSortPy, mediana_memoria_xlsx_bubbleSortPy], width=bar_width, label="Python (Excel)", alpha=0.6, color='blue')
-        plt.bar([i + bar_width for i in x], [mediana_memoria_csv_mergeSort, mediana_memoria_csv_bubbleSort], width=bar_width, label="Java (CSV)", alpha=0.6, color='green')
+        plt.bar(x, [mediana_memoria_xlsx_mergeSortPy, mediana_memoria_xlsx_bubbleSortPy], width=bar_width, label="Python", alpha=0.6, color='blue')
+        plt.bar([i + bar_width for i in x], [mediana_memoria_csv_mergeSort, mediana_memoria_csv_bubbleSort], width=bar_width, label="Java", alpha=0.6, color='green')
         plt.xticks([i + bar_width/2 for i in x], ['mergeSort', 'bubbleSort'])
         plt.xlabel("Método")
         plt.ylabel("Mediana do Consumo de Memória (KB)")
@@ -106,6 +112,7 @@ def criar_graficos():
         plt.legend()
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig("mediana_memoria_VM.png")
         plt.show()
 
     except KeyError as e:

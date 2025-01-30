@@ -89,12 +89,12 @@ public class medeDesempenho {
         System.out.println("Tempo de execução: " + tempoMs + " ms");
         System.out.println("Consumo de memória: " + memoriaKb + " KB");
 
-        salvarListaEmArquivo(lista, "arq_saida.txt");
-        salvarDadosEmPlanilha(tempoMs, memoriaKb,metodo, "resultadosJava.csv");
+        // salvarListaEmArquivo(lista, "arq_saida.txt");
+        salvarDadosEmPlanilha(tempoMs, memoriaKb,metodo, "resultadosJavaVM.csv");
     }
 
     public static void main(String[] args) {
-        String arquivo = "D:/Nathan SSD/Estudos/AD-2024.2-p5/ordenacao/arq.txt";
+        String arquivo = "ordenacao/arq-desafio.txt";
 
         for (int i = 0; i < 10; i++) {
             medirDesempenho(arquivo);
